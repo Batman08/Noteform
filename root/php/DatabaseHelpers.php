@@ -60,4 +60,9 @@ function SaveNoteData(
 {
     return CallDatabase("call spSaveNoteData('$p_UserId', '$p_Title', '$p_Description')", false);
 }
+
+function GetAllNoteData($p_UserId)
+{
+    return CallDatabase("call spGetAllNoteData('$p_UserId')", true);
+}
 ?>
