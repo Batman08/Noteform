@@ -40,3 +40,20 @@ BEGIN
     VALUES(p_UserId, p_Title, p_Description);
 END$$
 DELIMITER ;
+
+
+-- [spGetAllNoteData]
+-- This will return all note data for a user
+-- -----------------------------------------
+
+DROP procedure IF EXISTS `spGetAllNoteData`;
+DELIMITER $$
+CREATE PROCEDURE `spGetAllNoteData` (IN p_UserId INT)
+BEGIN
+	select nd.NoteId, nd.Title, nd.Description
+	FROM NoteDetails nd
+		INNER JOIN Users u ON nd.UserId = U.UserId
+	WHERE nd.UserId = p_UserId
+	ORDER BY nd.NoteId DESC;
+END$$
+DELIMITER ;
