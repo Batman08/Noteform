@@ -26,3 +26,17 @@ BEGIN
 	WHERE u.Username = p_Username;
 END$$
 DELIMITER ;
+
+
+-- [spSaveNoteData]
+-- This will save a users note data
+-- --------------------------------
+
+DROP procedure IF EXISTS `spSaveNoteData`;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spSaveNoteData`(IN p_UserId INT, IN p_Title VARCHAR(256), IN p_Description VARCHAR(256))
+BEGIN
+	INSERT INTO NoteDetails(UserId, Title, Description)
+    VALUES(p_UserId, p_Title, p_Description);
+END$$
+DELIMITER ;
