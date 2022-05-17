@@ -143,4 +143,32 @@ function editNoteData(noteId) {
     console.log("Processing Data");
   }
 
+  function updateNoteData(e) {
+    if (e.preventDefault) e.preventDefault();
+  
+    let noteId = document.querySelector("#hiddenData").value;
+  
+    var dataToServer = {
+      UserId: localStorage.getItem("UserId"),
+      NoteId: noteId,
+      Title: editTitle.value,
+      Description: editDescription.value
+    };
+  
+    $.ajax({
+      type: 'POST',
+      url: '../php/UpdateNoteData.php',
+      data: dataToServer,
+      success: function (status) {
+        console.log(status);
+        $('#editStaticBackdrop').modal('hide');
+        document.querySelector('#formEditNote').reset();
+        getNoteData();
+      }
+    });
+  
+    console.log("Updating note data");
+  }
+
 document.querySelector('#formNote').addEventListener("submit", processCreateNoteForm);
+document.querySelector('#formEditNote').addEventListener("submit", updateNoteData);

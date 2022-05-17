@@ -71,4 +71,9 @@ function GetNoteData($p_UserId, $p_NoteId)
     $noteData = CallDatabase("call spGetNoteData('$p_UserId', '$p_NoteId')", true);
     return $noteData[0];
 }
+
+function UpdateNoteData($p_NoteId, $p_UserId, $p_Title, $p_Description)
+{
+    return CallDatabase("call spUpdateNoteData('$p_NoteId', '$p_UserId', '$p_Title', '$p_Description')", false);
+}
 ?>
