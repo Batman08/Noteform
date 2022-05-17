@@ -76,4 +76,9 @@ function UpdateNoteData($p_NoteId, $p_UserId, $p_Title, $p_Description)
 {
     return CallDatabase("call spUpdateNoteData('$p_NoteId', '$p_UserId', '$p_Title', '$p_Description')", false);
 }
+
+function DeleteNoteData($p_UserId, $p_NoteId)
+{
+    return CallDatabase("call spDeleteNoteData('$p_UserId', '$p_NoteId')", false);
+}
 ?>

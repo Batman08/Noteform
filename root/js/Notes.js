@@ -170,5 +170,31 @@ function editNoteData(noteId) {
     console.log("Updating note data");
   }
 
+  function deleteNoteData(e) {
+    if (e.preventDefault) e.preventDefault();
+  
+    let noteId = document.querySelector("#hiddenData").value;
+  
+    var dataToServer = {
+      UserId: localStorage.getItem("UserId"),
+      NoteId: noteId
+    };
+  
+    $.ajax({
+      type: 'POST',
+      url: '../php/DeleteNoteData.php',
+      data: dataToServer,
+      success: function (status) {
+        console.log(status);
+        $('#editStaticBackdrop').modal('hide');
+        getNoteData();
+      }
+    });
+  
+    console.log("Processing deletion of data");
+  }
+  
+
 document.querySelector('#formNote').addEventListener("submit", processCreateNoteForm);
 document.querySelector('#formEditNote').addEventListener("submit", updateNoteData);
+document.querySelector('#btnDeleteNote').addEventListener("click", deleteNoteData);
