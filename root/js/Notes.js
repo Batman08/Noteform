@@ -1,4 +1,4 @@
-alert(localStorage.getItem("UserId"));
+// alert(localStorage.getItem("UserId"));
 let checkIfUserIsNotLoggedIn = localStorage.getItem("UserId") == null;
 if (checkIfUserIsNotLoggedIn) {
     console.log("re direct back to login page");
@@ -68,7 +68,7 @@ function getNoteData() {
                 for (let i = 0; i < noteData.length; i++) {
                     const template = document.createElement('template');
             template.innerHTML = `
-            <div class="col-md-4">
+            <div class="col-xl-4">
             <div class="card marginTop25">
               <div class="card-body">
                 <h5 class="card-title">${noteData[i].Title}</h5>
@@ -193,8 +193,13 @@ function editNoteData(noteId) {
   
     console.log("Processing deletion of data");
   }
+
+  function clearLocalStorage() {
+    localStorage.clear();
+  }
   
 
 document.querySelector('#formNote').addEventListener("submit", processCreateNoteForm);
 document.querySelector('#formEditNote').addEventListener("submit", updateNoteData);
 document.querySelector('#btnDeleteNote').addEventListener("click", deleteNoteData);
+document.querySelector('#btnLogout').addEventListener("click", clearLocalStorage);
