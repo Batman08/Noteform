@@ -28,23 +28,61 @@
                     <div class="card-body">
                         <form id="formNote" method="post">
                             <div class="mb-3">
-                              <label for="txtTitle" class="form-label"><i class="fas fa-heading"></i> Title</label>
-                              <input type="text" class="form-control" id="txtTitle" required>
+                                <label for="txtTitle" class="form-label"><i class="fas fa-heading"></i> Title</label>
+                                <input type="text" class="form-control" id="txtTitle" required>
                             </div>
-              
+
                             <div class="mb-3">
-                              <label for="txtDescription" class="form-label"><i class="fas fa-info"></i> Description</label>
-                              <textarea id="txtDescription" class="form-control" rows="3" maxlength="90" required></textarea>
+                                <label for="txtDescription" class="form-label"><i class="fas fa-info"></i>
+                                    Description</label>
+                                <textarea id="txtDescription" class="form-control" rows="3" maxlength="90"
+                                    required></textarea>
                             </div>
-              
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create</button>
-                          </form>
+
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i>
+                                Create</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="notesSection"></div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editStaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Card</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formEditCard">
+                            <div class="mb-3">
+                                <label for="txtEditTitle" class="form-label"><i class="fas fa-heading"></i> Title</label>
+                                <input type="text" class="form-control" id="txtEditTitle" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtEditDescription" class="form-label"><i class="fas fa-info"></i> Description</label>
+                                <textarea id="txtEditDescription" class="form-control" rows="3" maxlength="90" required></textarea>
+                            </div>
+                            
+                            <hr />
+
+                            <button id="btnDeleteCard" class="btn btn-outline-danger" type="button"><i class="far fa-trash-alt"></i>Delete</button>
+                            <div style="float: right; padding-right: 15px;">
+                                <span style="padding-right: 5px;">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="far fa-times-circle fa-fw"></i> Close</button></span>
+                                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Save changes</button>
+                            </div>
+                            <input type="hidden" id="hiddenData">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="../js/Notes.js"></script>
@@ -60,4 +98,5 @@
         integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+
 </html>

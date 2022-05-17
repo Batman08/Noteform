@@ -65,4 +65,10 @@ function GetAllNoteData($p_UserId)
 {
     return CallDatabase("call spGetAllNoteData('$p_UserId')", true);
 }
+
+function GetNoteData($p_UserId, $p_NoteId)
+{
+    $noteData = CallDatabase("call spGetNoteData('$p_UserId', '$p_NoteId')", true);
+    return $noteData[0];
+}
 ?>
