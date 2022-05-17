@@ -51,4 +51,13 @@ function GetUserLoginDetails($p_Username)
     $details = CallDatabase("call spGetUserLoginDetails('$p_Username')", true);
     return $details[0];
 }
+
+function SaveNoteData(
+    $p_UserId,
+    $p_Title,
+    $p_Description
+)
+{
+    return CallDatabase("call spSaveNoteData('$p_UserId', '$p_Title', '$p_Description')", false);
+}
 ?>
