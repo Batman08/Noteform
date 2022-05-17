@@ -11,3 +11,18 @@ BEGIN
 	INSERT INTO Users (Username, Password) VALUES(p_Username, p_Password);
 END$$
 DELIMITER ;
+
+
+-- [spGetUserLoginDetails]
+-- This will return a username and password 
+-- ----------------------------------------
+
+DROP procedure IF EXISTS `spGetUserLoginDetails`;
+DELIMITER $$
+CREATE PROCEDURE `spGetUserLoginDetails` (IN p_Username Varchar(256))
+BEGIN
+	SELECT UserId, Username, Password
+	FROM Users u
+	WHERE u.Username = p_Username;
+END$$
+DELIMITER ;
