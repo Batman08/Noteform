@@ -88,3 +88,16 @@ BEGIN
 	WHERE UserId = p_UserId AND NoteId =  p_NoteId;
 END$$
 DELIMITER ;
+
+
+-- [spDeleteNoteData]
+-- This will delete data for a specific note
+-- -----------------------------------------
+
+DROP procedure IF EXISTS `spDeleteNoteData`;
+DELIMITER $$
+CREATE PROCEDURE `spDeleteNoteData` (IN p_UserId INT, IN p_NoteId INT)
+BEGIN
+	DELETE FROM NoteDetails WHERE UserId = p_UserId AND NoteId = p_NoteId;
+END$$
+DELIMITER ;
