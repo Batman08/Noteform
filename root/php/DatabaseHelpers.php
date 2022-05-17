@@ -3,8 +3,8 @@ function OpenConnection()
 {
     $server = "localhost";
     $username = "root";
-    $password = "Hoisaejfr^&o2";
-    $database = "Vaccinations";
+    $password = "";
+    $database = "Noteform";
 
     $conn = new mysqli($server, $username, $password, $database);
 
@@ -39,5 +39,16 @@ function CallDatabase($sql, $isDataReturned)
         $conn->close();
         echo "Error!" . $e->getMessage();
     }
+}
+
+function SaveLoginDetails($p_Username, $p_Password)
+{
+    return CallDatabase("call spSaveLoginDetails('$p_Username', '$p_Password')", false);
+}
+
+function GetUserLoginDetails($p_Username)
+{
+    $details = CallDatabase("call spGetUserLoginDetails('$p_Username')", true);
+    return $details[0];
 }
 ?>
