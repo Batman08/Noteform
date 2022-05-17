@@ -57,3 +57,19 @@ BEGIN
 	ORDER BY nd.NoteId DESC;
 END$$
 DELIMITER ;
+
+
+-- [spGetNoteData]
+-- This will get a specific user note data
+-- ---------------------------------------
+
+DROP procedure IF EXISTS `spGetNoteData`;
+DELIMITER $$
+CREATE PROCEDURE `spGetNoteData` (IN p_UserId INT, IN p_NoteId INT)
+BEGIN
+	SELECT nd.Title, nd.Description
+	FROM NoteDetails nd
+		INNER JOIN Users u on u.UserId = nd.UserId
+	WHERE u.UserId = p_UserId AND nd.NoteId = p_NoteId;
+END$$
+DELIMITER ;
