@@ -73,3 +73,18 @@ BEGIN
 	WHERE u.UserId = p_UserId AND nd.NoteId = p_NoteId;
 END$$
 DELIMITER ;
+
+
+-- [spUpdateNoteData]
+-- This will update the edited note
+-- --------------------------------
+
+DROP procedure IF EXISTS `spUpdateNoteData`;
+DELIMITER $$
+CREATE PROCEDURE `spUpdateNoteData` (IN p_NoteId INT, IN p_UserId INT, IN p_Title VARCHAR(256), IN p_Description VARCHAR(256))
+BEGIN
+	UPDATE NoteDetails 
+	SET Title = p_Title, Description = p_Description
+	WHERE UserId = p_UserId AND NoteId =  p_NoteId;
+END$$
+DELIMITER ;
