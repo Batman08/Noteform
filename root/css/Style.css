@@ -5,3 +5,9 @@
 .padTop25{
     padding-top: 25px;
 }
+
+.noteform-title{
+    padding-top: 10px;
+    padding-bottom: 50px;
+    text-align: center;
+}

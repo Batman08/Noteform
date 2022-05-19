@@ -33,6 +33,7 @@ function processCreateNoteForm(e) {
         data: dataToServer,
         success: function (data, status) {
             console.log(status);
+            clearForm('#formNote');
             getNoteData();
         }
     });
@@ -69,7 +70,7 @@ function getNoteData() {
                     const template = document.createElement('template');
             template.innerHTML = `
             <div class="col-xl-4">
-            <div class="card marginTop25">
+            <div class="card border-secondary marginTop25">
               <div class="card-body">
                 <h5 class="card-title">${noteData[i].Title}</h5>
                 <p class="card-text">${noteData[i].Description}</p>
@@ -162,7 +163,7 @@ function editNoteData(noteId) {
       success: function (status) {
         console.log(status);
         $('#editStaticBackdrop').modal('hide');
-        document.querySelector('#formEditNote').reset();
+        clearForm('#formEditNote');
         getNoteData();
       }
     });
@@ -197,9 +198,15 @@ function editNoteData(noteId) {
   function clearLocalStorage() {
     localStorage.clear();
   }
+
+  function clearForm(element){
+    // document.querySelector('#formEditNote').reset();
+    document.querySelector(element).reset();
+  }
   
 
 document.querySelector('#formNote').addEventListener("submit", processCreateNoteForm);
 document.querySelector('#formEditNote').addEventListener("submit", updateNoteData);
 document.querySelector('#btnDeleteNote').addEventListener("click", deleteNoteData);
 document.querySelector('#btnLogout').addEventListener("click", clearLocalStorage);
+document.querySelector('#btnCloseModal').addEventListener("click", clearForm('#formEditNote'));

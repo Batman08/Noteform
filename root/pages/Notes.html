@@ -27,7 +27,7 @@
                 <div id="divCreateMessage"></div>
                 <div class="card marginTop25">
                     <div class="card-header">
-                        <h3><i class="fas fa-sign-in-alt"></i> Create Note</h3>
+                        <h3><i class="fas fa-plus-circle fa-beat"></i> Create Note</h3>
                     </div>
                     <div class="card-body">
                         <form id="formNote" method="post">
@@ -37,14 +37,11 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="txtDescription" class="form-label"><i class="fas fa-info"></i>
-                                    Description</label>
-                                <textarea id="txtDescription" class="form-control" rows="3" maxlength="90"
-                                    required></textarea>
+                                <label for="txtDescription" class="form-label"><i class="fas fa-info"></i> Description</label>
+                                <textarea id="txtDescription" class="form-control" rows="3" maxlength="90" required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i>
-                                Create</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create</button>
                         </form>
                     </div>
                 </div>
@@ -79,14 +76,12 @@
 
                             <hr />
 
-                            <button id="btnDeleteNote" class="btn btn-outline-danger" type="button"><i
-                                    class="far fa-trash-alt"></i>Delete</button>
+                            <button id="btnDeleteNote" class="btn btn-outline-danger" type="button"><i class="far fa-trash-alt"></i>Delete</button>
                             <div style="float: right; padding-right: 15px;">
                                 <span style="padding-right: 5px;">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
-                                            class="far fa-times-circle fa-fw"></i> Close</button></span>
-                                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Save
-                                    changes</button>
+                                    <button type="button" id="btnCloseModal" class="btn btn-secondary" data-bs-dismiss="modal"><i class="far fa-times-circle fa-fw"></i> Close</button>
+                                </span>
+                                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Save changes</button>
                             </div>
                             <input type="hidden" id="hiddenData">
                         </form>
